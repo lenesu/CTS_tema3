@@ -1,0 +1,24 @@
+Mobile phone app: RPG game
+The concept is simple. A strategy based rpg game with a turn based combat system. It lets you replay missions automatically for grinding 
+purposes, use items in and out of combat, has events and requires energy to start up missions, energy that regenerates with time.
+At the start of the game I used a BUILDER design pattern in order to let the user customize its character. He can choose his hair, mouth,
+eyes and class out of several options. The used will later be able to modify the customization but not the class. 
+The main event the player is able to access is the arena where he will be able to fight different monster types in a sequence for rewards.
+The background is going to be populated with several npcs. In other to populate the area I used a PROTOTYPE design pattern. 
+In creating the npcs I used the FACTORY design pattern in order to create multiple npc types. There are three types of npcs: generic ones
+(they only provide a few lines of dialogue), quest ones (they give quests to the player), merchants (they sell items to the player). 
+They derive form the same idea but have different functions.
+Moving on to the enemies. They are the same with some minor modifications, mostly esthetic in their look and attack moves. They are 
+deriving from one another because there are 4 types of enemies based on elements (water, earth, fire, air). Which is why I used the 
+DECORATOR (mostly to change the color of the enemies). 
+The player also has a forging system where he can make new weapons and armor for his character. This should be based on a COMPOSITE 
+design pattern as they derive from the same basic idea. They have the same general idea and are derived from the same classes (rogue 
+pants are derived from pants which are derived from armor etc.).
+There is one more type of item in the game: consumables. They are used in fights in order to boost your stats(mana for spells,health
+and bonus stats). Those are on a FLYWEIGTH design. They are not very different but they have different stats.
+As stated before the combat of the game is, as stated before, turn based. Because of this the STATE design pattern matches the best. 
+Each round you get to pick the state of the character (attack, defense, use spell, special move etc.).
+In order to make armor you need special items which are dropped from enemies in the levels. The game lets you replay past levels 
+automatically and give you random drops based on an algorithm. This can be achieved with the COMMAND design pattern.
+Last but not least you need to wait for you energy to regenerate in order to play more levels. The application sends push notification 
+in order to let you know when you energy has fully regenerated. This is best suited for the OBSERVER design pattern.
